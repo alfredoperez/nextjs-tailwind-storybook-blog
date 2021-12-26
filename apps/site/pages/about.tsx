@@ -16,7 +16,7 @@ export function About(props: AboutProps) {
 export const getStaticProps: GetStaticProps<AboutProps> = async (context) => {
   return {
     props: {
-      name: 'Juri',
+      name: 'Alfredo',
     },
   };
 };
