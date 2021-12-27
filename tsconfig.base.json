@@ -17,8 +17,8 @@
     "paths": {
       "@apdev/markdown": ["libs/markdown/src/index.ts"],
       "@apdev/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"],
-      "@apdev/shared/mdx-elements/*": ["libs/shared/mdx-elements/src/lib/*"]
-
+      "@apdev/shared/mdx-elements/*": ["libs/shared/mdx-elements/src/lib/*"],
+      "@apdev/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
