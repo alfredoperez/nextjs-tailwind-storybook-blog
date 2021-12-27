@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@apdev/markdown": ["libs/markdown/src/index.ts"]
+      "@apdev/markdown": ["libs/markdown/src/index.ts"],
+      "@apdev/shared/mdx-elements": ["libs/shared/mdx-elements/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

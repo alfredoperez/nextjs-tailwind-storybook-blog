@@ -1,4 +1,5 @@
 import { getParsedFileContentBySlug, renderMarkdown } from "@apdev/markdown";
+import { Youtube } from "@apdev/shared/mdx-elements";
 import { readdirSync } from "fs";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
@@ -9,6 +10,9 @@ interface ArticleProps extends ParsedUrlQuery {
   slug: string;
 }
 
+const mdxElements = {
+  Youtube
+}
 const POSTS_PATH = join(process.cwd(), '_articles');
 
 export function Article({frontMatter, html}: ArticleProps) {
@@ -19,7 +23,7 @@ export function Article({frontMatter, html}: ArticleProps) {
         <div>by {frontMatter.author.name}</div>
       </article>
       <hr/>
-      <MDXRemote {...html} />
+      <MDXRemote {...html}  components={mdxElements}  />
     </div>
   );
 }

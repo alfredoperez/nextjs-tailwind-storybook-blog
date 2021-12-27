@@ -5,7 +5,7 @@ import  {serialize} from 'next-mdx-remote/serialize'
 
 export function getParsedFileContentBySlug(filename:string, postsPath:string){
 
-  const postFilePath = join(postsPath, `${filename}.md`);
+  const postFilePath = join(postsPath, `${filename}.mdx`);
   const fileContent = fs.readFileSync(postFilePath);
 
   const { data, content} = matter(fileContent);
