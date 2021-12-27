@@ -1,9 +1,10 @@
 import { getParsedFileContentBySlug, renderMarkdown } from "@apdev/markdown";
-import { Youtube } from "@apdev/shared/mdx-elements";
+import { CustomLink } from "@apdev/shared/mdx-elements";
 import { readdirSync } from "fs";
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import {join } from 'path';
+import dynamic from 'next/dynamic'
 import { MDXRemote } from "next-mdx-remote";
 
 interface ArticleProps extends ParsedUrlQuery {
@@ -11,9 +12,10 @@ interface ArticleProps extends ParsedUrlQuery {
 }
 
 const mdxElements = {
-  Youtube
+  Youtube:dynamic(async () => await import('@apdev/shared/mdx-elements/youtube/youtube')),
+  // a:  CustomLink
 }
-const POSTS_PATH = join(process.cwd(), '_articles');
+const POSTS_PATH = join(process.cwd(), process.env.POSTS_PATH);
 
 export function Article({frontMatter, html}: ArticleProps) {
   return (
