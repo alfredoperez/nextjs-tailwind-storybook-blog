@@ -155,7 +155,8 @@
           "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["site-posts"]
     },
     "site-e2e": {
       "root": "apps/site-e2e",
@@ -213,6 +214,13 @@
       },
       "tags": [],
       "implicitDependencies": ["shared-ui"]
+    },
+    "site-posts": {
+      "root": "_content",
+      "sourceRoot": "_content",
+      "projectType": "application",
+      "targets": {},
+      "tags": []
     }
   }
 }
