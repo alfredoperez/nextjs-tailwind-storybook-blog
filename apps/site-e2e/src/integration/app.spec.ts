@@ -1,13 +1,9 @@
 import { getGreeting } from '../support/app.po';
 
 describe('site', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => cy.visit('/articles/dynamic-routing'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to site!');
-  });
+  it('should render title', () => {
+    cy.get('h1').should('contain', 'Dynamic Routing and Static Generation');
+ });
 });

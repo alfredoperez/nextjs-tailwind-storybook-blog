@@ -13,8 +13,8 @@ export function TopicButton({name, onClick}: TopicButtonProps) {
             const cleanedSvgName = name
                 .replace(/[^a-zA-Z0-9]/g, '')
                 .toLocaleLowerCase();
-            const topicSvgIcon = await import(`./${cleanedSvgName}.svg`);
-            setIcon(topicSvgIcon.default);
+           // const topicSvgIcon = await import(`./${cleanedSvgName}.svg`);
+          //  setIcon(topicSvgIcon.default);
         };
         fetchData();
     }, [name]);
@@ -36,7 +36,7 @@ export function TopicButton({name, onClick}: TopicButtonProps) {
         >
             <img src={icon} alt="" className="w-12" />
             <div className="p-5">
-                <h2 className="font-bold text-4xl">{name}</h2>
+                <h2 className="font-bold text-4xl" data-testid="topicName">{name}</h2>
             </div>
         </div>
     );

@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="shared-ui:storybook --twnd" type="js.build_tools.nx">
+    <node-interpreter value="project" />
+    <nxfile value="$PROJECT_DIR$/nx.json" />
+    <tasks>
+      <task value="shared-ui:storybook" />
+    </tasks>
+    <envs>
+      <env name="TAILWIND_MODE" value="watch" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>

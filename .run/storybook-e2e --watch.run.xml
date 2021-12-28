@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="storybook-e2e --watch" type="js.build_tools.nx" folderName="site">
+    <node-interpreter value="project" />
+    <nxfile value="$PROJECT_DIR$/nx.json" />
+    <tasks>
+      <task value="storybook-e2e-ui-e2e:e2e" />
+    </tasks>
+    <arguments value="--watch" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,7 +1,7 @@
 import { getParsedFileContentBySlug, renderMarkdown } from "@apdev/markdown";
 import { CustomLink } from "@apdev/shared/mdx-elements";
 import { readdirSync } from "fs";
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import {join } from 'path';
 import dynamic from 'next/dynamic'
@@ -17,12 +17,12 @@ const mdxElements = {
 }
 const POSTS_PATH = join(process.cwd(), process.env.POSTS_PATH);
 
-export function Article({frontMatter, html}: ArticleProps) {
+export function Article({frontMatter, html}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className="m-6">
       <article className="prose prose-lg">
         <h1>{frontMatter.title}</h1>
-        <div>by {frontMatter.author.name}</div>
+        <div>by {(frontMatter.author as any).name}</div>
       </article>
       <hr/>
       <MDXRemote {...html}  components={mdxElements}  />
@@ -30,7 +30,7 @@ export function Article({frontMatter, html}: ArticleProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<ArticleProps> = async ({
+export const getStaticProps = async ({
   params,
 }: {
   params: ArticleProps;
