@@ -17,7 +17,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/markdown"],
           "options": {
-            "jestConfig": "libs/markdown/jest.config.js",
+            "jestConfig": "libs/markdown/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -43,7 +43,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/mdx-elements"],
           "options": {
-            "jestConfig": "libs/shared/mdx-elements/jest.config.js",
+            "jestConfig": "libs/shared/mdx-elements/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -66,7 +66,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/shared/ui"],
           "options": {
-            "jestConfig": "libs/shared/ui/jest.config.js",
+            "jestConfig": "libs/shared/ui/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -116,8 +116,10 @@
             "outputPath": "dist/apps/site"
           },
           "configurations": {
-            "production": {}
-          }
+            "production": {},
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "executor": "@nrwl/next:server",
@@ -130,8 +132,13 @@
             "production": {
               "buildTarget": "site:build:production",
               "dev": false
+            },
+            "development": {
+              "buildTarget": "site:build:development",
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "export": {
           "executor": "@nrwl/next:export",
@@ -143,7 +150,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/site"],
           "options": {
-            "jestConfig": "apps/site/jest.config.js",
+            "jestConfig": "apps/site/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -187,6 +194,13 @@
       "tags": [],
       "implicitDependencies": ["site"]
     },
+    "site-posts": {
+      "root": "_content",
+      "sourceRoot": "_content",
+      "projectType": "application",
+      "targets": {},
+      "tags": []
+    },
     "storybook-e2e-ui-e2e": {
       "root": "apps/storybook-e2e/ui-e2e",
       "sourceRoot": "apps/storybook-e2e/ui-e2e/src",
@@ -214,13 +228,6 @@
       },
       "tags": [],
       "implicitDependencies": ["shared-ui"]
-    },
-    "site-posts": {
-      "root": "_content",
-      "sourceRoot": "_content",
-      "projectType": "application",
-      "targets": {},
-      "tags": []
     }
   }
 }
